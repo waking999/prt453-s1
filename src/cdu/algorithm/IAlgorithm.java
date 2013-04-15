@@ -13,7 +13,7 @@ import cdu.io.IInput;
  */
 
 public interface IAlgorithm {
-	public static final String CONNECTED = "1";
+	
 	/**
 	 * Put the source of data into an algorithm 
 	 * @param input the source of data

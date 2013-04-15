@@ -1,6 +1,5 @@
 package cdu.algorithm;
 
-
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -12,6 +11,7 @@ import java.util.Set;
 import org.springframework.stereotype.Component;
 
 import cdu.io.IInput;
+import cdu.util.Util;
 
 /**
  * take use of mathematics to get dominating set
@@ -22,13 +22,14 @@ import cdu.io.IInput;
 @Component("algorithmMathematics")
 public class AlgorithmMathematics implements IAlgorithm {
 	private IInput input;
-	//private static final String CONNECTED = "1";
-	private static final String SET_MULTIPLY_SIGN="*";
+	// private static final String CONNECTED = "1";
+	private static final String SET_MULTIPLY_SIGN = "*";
 
 	private int numOfVertex; // number of vertex
 	private List<String[]> adjacencyMatrix; // adjacency matrix
 
-	private Set<List<String>> dominatingSetSet; // an array contain dominating set
+	private Set<List<String>> dominatingSetSet; // an array contain dominating
+												// set
 
 	/**
 	 * return the array of dominating set
@@ -67,7 +68,7 @@ public class AlgorithmMathematics implements IAlgorithm {
 			Set<String> sumList = new HashSet<String>();
 			for (int j = 0; j < numOfVertex; j++) {
 				String[] adjacencyMatrixRow = adjacencyMatrix.get(i);
-				if (CONNECTED.equals(adjacencyMatrixRow[j])) {
+				if (Util.CONNECTED.equals(adjacencyMatrixRow[j])) {
 					sumList.add(Integer.toString(j));
 				}
 			}
@@ -99,8 +100,8 @@ public class AlgorithmMathematics implements IAlgorithm {
 		for (int i = 0; i < mulListArrLen; i++) {
 			String ds = (String) mulListArr[i];
 			String[] dsEle = ds.split("[*]");
-			
-			dominatingSetSet.add(Arrays.asList(dsEle)) ;
+
+			dominatingSetSet.add(Arrays.asList(dsEle));
 		}
 
 	}
@@ -139,7 +140,7 @@ public class AlgorithmMathematics implements IAlgorithm {
 					String removeStr = contact(yEle, SET_MULTIPLY_SIGN);
 					a.remove(removeStr);
 				}
-
+				
 			}
 
 		}
@@ -150,7 +151,7 @@ public class AlgorithmMathematics implements IAlgorithm {
 
 		// TODO: the performance of the for loops could be improved since a
 		// would remove some elements so as to the length of array could be
-		// less, which means less comparation
+		// less, which means less comparasion
 		for (int i = 0; i < aStrArrLen; i++) {
 			String x = (String) aStrArr[i];
 			String[] xEle = x.split("[*]");
@@ -181,6 +182,7 @@ public class AlgorithmMathematics implements IAlgorithm {
 
 	/**
 	 * the opposite operation of split
+	 * 
 	 * @param strs
 	 * @param separator
 	 * @return

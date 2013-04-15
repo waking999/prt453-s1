@@ -5,14 +5,15 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
-import junit.framework.TestCase;
-
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import cdu.io.InputFile;
 
 /**
  * This test class works for test of Algorithm in Mathematics idea
@@ -20,7 +21,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * @author : Kai
  * 
  */
-public class AlgorithmMathematicsTest extends TestCase {
+public class AlgorithmMathematicsTest  {
 
 	private IAlgorithm am;
 	
@@ -41,7 +42,7 @@ public class AlgorithmMathematicsTest extends TestCase {
 	}
 
 	@Test
-	public void testGenerateDominatingSet() {
+	public void generateDominatingSet() {
 
 		/*
 		 * adjacencyMatrix = { {1,1,1,1,0,0}, {1,1,0,1,0,0}, {1,0,1,1,0,0},
@@ -83,9 +84,10 @@ public class AlgorithmMathematicsTest extends TestCase {
 		}
 
 	}
-
+	
+	@Ignore
 	@Test
-	public void testGenerateDominatingSet2() {
+	public void generateDominatingSet2() {
 
 		/*
 		 * 
@@ -130,8 +132,9 @@ public class AlgorithmMathematicsTest extends TestCase {
 
 	}
 
+	@Ignore
 	@Test
-	public void testGenerateDominatingSet3() {
+	public void generateDominatingSet3() {
 
 		/*
 		 * 
@@ -196,6 +199,27 @@ public class AlgorithmMathematicsTest extends TestCase {
 			}
 
 		}
+
+	}
+	
+	
+	@Ignore
+	@Test
+	public void takeUseOfGeneratedRandGraphTo(){
+		
+		InputFile input = new InputFile();
+		input.setInputFile("resource/testcase20.csv");
+		input.getAdjacencyInfo();
+		List<String[]> adjacencyMatrix = input.getAdjacencyMatrix();
+		int numOfVertex = input.getNumOfVertex();
+		
+		am.setNumOfVertex(numOfVertex);
+		am.setAdjacencyMatrix(adjacencyMatrix);
+		
+		am.generateDominatingSet();
+		
+
+		
 
 	}
 }

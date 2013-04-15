@@ -13,7 +13,7 @@ import cdu.io.InputFile;
  * @author : Kai
  *
  */
-public class InputFileTest extends TestCase {
+public class InputFileTest  {
 	
 	@Test
 	public void testGetAdjacencyMatrix(){

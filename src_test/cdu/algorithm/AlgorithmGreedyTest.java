@@ -5,14 +5,15 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
-import junit.framework.TestCase;
-
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import cdu.util.Util;
 
 /**
  * This test class works for test of Algorithm in Greedy idea
@@ -20,7 +21,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * @author : Kai
  * 
  */
-public class AlgorithmGreedyTest extends TestCase {
+public class AlgorithmGreedyTest  {
 private IAlgorithm ag;
 	
 	private ApplicationContext factory;
@@ -39,8 +40,8 @@ private IAlgorithm ag;
 
 	}
 
-	
-	//@Test
+	@Ignore
+	@Test
 	public void generateDominatingSet() {
 
 		/*
@@ -89,20 +90,13 @@ private IAlgorithm ag;
 			}
 		}
 
-		//print result
-//		while(dsIt.hasNext()){
-//			List<String> dsRow = dsIt.next();
-//			for(int i=0;i<dsRow.size();i++){
-//				System.out.print(dsRow.get(i)+",");
-//			}
-//			System.out.println();
-//				
-//		}
+
 
 	}
 	
+	@Ignore
 	@Test
-	public void testGenerateDominatingSet3() {
+	public void generateDominatingSet2() {
 
 		/*
 		 * 
@@ -158,18 +152,42 @@ private IAlgorithm ag;
 				Assert.assertEquals("0", dsRow.get(0));
 			}
 		}
-//		//print result
-//		while(dsIt.hasNext()){
-//			List<String> dsRow = dsIt.next();
-//			for(int i=0;i<dsRow.size();i++){
-//				System.out.print(dsRow.get(i)+",");
-//			}
-//			System.out.println();
-//				
-//		}
+
 
 	}
 
 
+	
+	@Test
+	public void takeUseOfUtilToGenerateBigRandGraphToCompute() {
+
+
+		int numOfVertex = 20;
+
+		List<String[]> adjacencyMatrix = Util.generateRandGraph(numOfVertex);
+		Util.saveToFile(adjacencyMatrix);
+
+
+		ag.setNumOfVertex(numOfVertex);
+		ag.setAdjacencyMatrix(adjacencyMatrix);
+		
+		ag.generateDominatingSet();
+		
+
+		
+		Set<List<String>> dsSet = ag.getDominatingSetSet();
+	
+		
+		Iterator<List<String>> dsIt = dsSet.iterator();
+		while(dsIt.hasNext()){
+			List<String> dsRow = dsIt.next();
+			int cLen =dsRow.size();
+			if (cLen == 4) {
+				Assert.assertEquals("0", dsRow.get(0));
+			}
+		}
+
+
+	}
 
 }
