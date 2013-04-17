@@ -1,8 +1,0 @@
-Step 0:remove vertex 5 (with 36 neighbors ) firstly and its neighbors-0,6,7,8,9,10,11,12,13,14,15,16,19,18,23,22,25,24,27,26,29,28,30,35,33,39,36,42,43,40,41,46,47,44,49,48,
-Step 1:remove vertex 31 (with 27 neighbors ) firstly and its neighbors-17,21,32,38,37,
-Step 2:remove vertex 2 (with 25 neighbors ) firstly and its neighbors-3,4,
-Step 3:remove vertex 34 (with 17 neighbors ) firstly and its neighbors-
-Step 4:remove vertex 45 (with 16 neighbors ) firstly and its neighbors-1,
-Step 5:remove vertex 20 (with 9 neighbors ) firstly and its neighbors-
-cdu.algorithm.AlgorithmGreedy@96f890: 18691071
-5,31,2,34,45,20,

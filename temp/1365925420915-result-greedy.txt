@@ -1,5 +1,0 @@
-Step 0:remove vertex 0 (with 14 neighbors ) firstly and its neighbors-1,2,3,5,7,9,10,11,13,14,17,16,19,18,
-Step 1:remove vertex 15 (with 10 neighbors ) firstly and its neighbors-6,8,12,
-Step 2:remove vertex 4 (with 3 neighbors ) firstly and its neighbors-
-cdu.algorithm.AlgorithmGreedy@143692f: 13427021
-0,15,4,

@@ -13,6 +13,7 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import cdu.io.InputFile;
 import cdu.util.Util;
 
 /**
@@ -21,18 +22,16 @@ import cdu.util.Util;
  * @author : Kai
  * 
  */
-public class AlgorithmGreedyTest  {
-private IAlgorithm ag;
-	
-	private ApplicationContext factory;
+public class AlgorithmGreedyTest {
+	private IAlgorithm ag;
 
-	
+	private ApplicationContext factory;
 
 	@Before
 	public void setUp() {
 		factory = new ClassPathXmlApplicationContext("beans.xml");
 		ag = (IAlgorithm) (factory.getBean("algorithmGreedy"));
-		
+
 	}
 
 	@After
@@ -51,16 +50,9 @@ private IAlgorithm ag;
 		 * Minimum Dominating Set : {0, 4}, {0, 5}, {3}, {1, 2, 4}, {1, 2, 5}
 		 */
 		/*
-		 * 3,
-0,5,
-5,0,
-4,0,
-2,5,1,
-1,5,2,
-
+		 * 3, 0,5, 5,0, 4,0, 2,5,1, 1,5,2,
 		 */
-		
-		
+
 		int numOfVertex = 6;
 
 		List<String[]> adjacencyMatrix = new ArrayList<String[]>();
@@ -71,29 +63,25 @@ private IAlgorithm ag;
 		adjacencyMatrix.add(new String[] { "0", "0", "0", "1", "1", "1" });
 		adjacencyMatrix.add(new String[] { "0", "0", "0", "1", "1", "1" });
 
-		
 		ag.setNumOfVertex(numOfVertex);
-		
+
 		ag.setAdjacencyMatrix(adjacencyMatrix);
-		
+
 		ag.generateDominatingSet();
-		
-		
+
 		Set<List<String>> dsSet = ag.getDominatingSetSet();
 		Iterator<List<String>> dsIt = dsSet.iterator();
-		
-		while(dsIt.hasNext()){
+
+		while (dsIt.hasNext()) {
 			List<String> dsRow = dsIt.next();
-			int cLen =dsRow.size();
+			int cLen = dsRow.size();
 			if (cLen == 1) {
 				Assert.assertEquals("3", dsRow.get(0));
 			}
 		}
 
-
-
 	}
-	
+
 	@Ignore
 	@Test
 	public void generateDominatingSet2() {
@@ -133,61 +121,60 @@ private IAlgorithm ag;
 		adjacencyMatrix.add(new String[] { "0", "1", "1", "0", "0", "0", "0",
 				"0", "0", "0", "1" });
 
-
 		ag.setNumOfVertex(numOfVertex);
 		ag.setAdjacencyMatrix(adjacencyMatrix);
-		
-		ag.generateDominatingSet();
-		
 
-		
+		ag.generateDominatingSet();
+
 		Set<List<String>> dsSet = ag.getDominatingSetSet();
-	
-		
+
 		Iterator<List<String>> dsIt = dsSet.iterator();
-		while(dsIt.hasNext()){
+		while (dsIt.hasNext()) {
 			List<String> dsRow = dsIt.next();
-			int cLen =dsRow.size();
+			int cLen = dsRow.size();
 			if (cLen == 4) {
 				Assert.assertEquals("0", dsRow.get(0));
 			}
 		}
 
-
 	}
 
-
-	
+	@Ignore
 	@Test
 	public void takeUseOfUtilToGenerateBigRandGraphToCompute() {
 
-
-		int numOfVertex = 20;
+		int numOfVertex = 400;
 
 		List<String[]> adjacencyMatrix = Util.generateRandGraph(numOfVertex);
 		Util.saveToFile(adjacencyMatrix);
 
-
+		ag.setK(numOfVertex/2);
 		ag.setNumOfVertex(numOfVertex);
 		ag.setAdjacencyMatrix(adjacencyMatrix);
-		
+
 		ag.generateDominatingSet();
-		
 
-		
-		Set<List<String>> dsSet = ag.getDominatingSetSet();
+		// Set<List<String>> dsSet = ag.getDominatingSetSet();
+	}
 	
-		
-		Iterator<List<String>> dsIt = dsSet.iterator();
-		while(dsIt.hasNext()){
-			List<String> dsRow = dsIt.next();
-			int cLen =dsRow.size();
-			if (cLen == 4) {
-				Assert.assertEquals("0", dsRow.get(0));
-			}
-		}
+	@Test
+	public void takeUseOfGeneratedBigRandGraphToCompute() {
 
+		InputFile input = new InputFile();
+		input.setInputFile("resource/testcase400.csv");
+		input.getAdjacencyInfo();
+		List<String[]> adjacencyMatrix = input.getAdjacencyMatrix();
+		int numOfVertex = input.getNumOfVertex();
 
+		ag.setK(numOfVertex/2);
+		ag.setNumOfVertex(numOfVertex);
+		ag.setAdjacencyMatrix(adjacencyMatrix);
+
+		ag.generateDominatingSet();
+
+	
+
+		return;
 	}
 
 }

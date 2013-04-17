@@ -16,7 +16,7 @@ public class Util {
 
 	public static List<String[]> generateRandGraph(int numOfVertex) {
 		List<String[]> adjacencyMatrix = null;
-		float adjacentRatio = 0.8f;
+		float adjacentRatio = 0.6f; //the purpose of this ratio is to reduce the number of neighbors of a vertex in order to increase the number of elements in ds. otherwise, a vertex may link to all other vertices and become the only element in the ds.
 
 		adjacencyMatrix = new ArrayList<String[]>(numOfVertex);
 		for (int i = 0; i < numOfVertex; i++) {

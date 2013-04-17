@@ -1,0 +1,13 @@
+Step 0:remove vertex 8 (with 110 neighbors ) firstly and its neighbors-36,159,33,158,37,152,150,151,42,41,40,22,169,24,26,165,27,167,3,2,162,163,164,30,7,6,31,4,9,17,179,15,16,176,13,12,170,109,108,172,107,106,105,104,99,102,94,93,91,90,188,181,183,184,185,186,88,89,117,79,77,111,194,197,196,190,118,192,198,199,82,83,80,81,86,87,84,85,67,66,127,68,122,123,72,74,76,134,135,132,139,56,55,65,62,63,131,130,143,144,48,145,147,148,51,52,54,142,141,50,
+Step 1:remove vertex 1 (with 105 neighbors ) firstly and its neighbors-35,39,38,153,43,23,166,29,161,0,32,19,18,178,14,11,175,103,98,95,189,180,10,78,114,115,191,193,119,69,121,124,70,120,73,75,133,138,57,136,137,64,44,47,46,
+Step 2:remove vertex 28 (with 100 neighbors ) firstly and its neighbors-34,157,156,154,177,20,174,97,96,187,112,195,129,71,59,58,60,61,49,45,140,
+Step 3:remove vertex 128 (with 96 neighbors ) firstly and its neighbors-113,125,126,168,5,160,171,173,100,146,182,53,
+Step 4:remove vertex 149 (with 62 neighbors ) firstly and its neighbors-155,101,
+Step 5:remove vertex 116 (with 48 neighbors ) firstly and its neighbors-
+Step 6:remove vertex 92 (with 40 neighbors ) firstly and its neighbors-
+Step 7:remove vertex 25 (with 40 neighbors ) firstly and its neighbors-
+Step 8:remove vertex 110 (with 38 neighbors ) firstly and its neighbors-
+Step 9:remove vertex 21 (with 10 neighbors ) firstly and its neighbors-
+cdu.algorithm.AlgorithmGreedy@17e62ad: 4064806693
+8,1,28,128,116,25,110,21,155,
+8,1,28,128,149,116,92,25,110,21,

@@ -39,6 +39,10 @@ public class AlgorithmMathematics implements IAlgorithm {
 	public Set<List<String>> getDominatingSetSet() {
 		return dominatingSetSet;
 	}
+	
+	public void setK(int k) {
+		
+	}
 
 	/**
 	 * Put the source of data into an algorithm

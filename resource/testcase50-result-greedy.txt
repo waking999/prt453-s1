@@ -1,0 +1,10 @@
+Step 0:remove vertex 17 (with 24 neighbors ) firstly and its neighbors-49,48,45,47,23,18,36,24,15,33,25,16,39,26,38,3,30,7,41,32,40,31,9,8,
+Step 1:remove vertex 13 (with 24 neighbors ) firstly and its neighbors-44,46,22,34,11,21,43,42,
+Step 2:remove vertex 14 (with 23 neighbors ) firstly and its neighbors-35,27,28,12,20,10,4,
+Step 3:remove vertex 19 (with 22 neighbors ) firstly and its neighbors-29,
+Step 4:remove vertex 0 (with 22 neighbors ) firstly and its neighbors-37,5,
+Step 5:remove vertex 2 (with 17 neighbors ) firstly and its neighbors-
+Step 6:remove vertex 1 (with 14 neighbors ) firstly and its neighbors-6,
+cdu.algorithm.AlgorithmGreedy@1cd6d16: 1027711750
+17,13,14,19,0,2,1,
+1,1,1,2,1,2,1,2,1,2,1,2,1,19,0,2,1,14,19,0,2,1,17,13,14,19,0,2,1,17,13,14,19,0,2,1,17,13,14,19,0,2,1,17,13,14,19,0,2,1,17,13,14,19,0,2,1,17,13,14,19,0,2,1,17,13,14,19,0,2,1,17,13,14,19,0,2,1,17,13,14,19,0,2,1,17,13,14,19,0,2,1,27,17,13,14,19,0,2,1,17,13,14,19,0,2,1,17,13,14,19,0,2,1,17,13,14,19,0,2,1,17,13,14,19,0,2,1,17,13,14,19,0,2,1,29,17,13,14,19,0,2,1,17,13,14,19,0,2,1,5,17,13,14,19,0,2,1,6,

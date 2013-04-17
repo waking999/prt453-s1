@@ -1,0 +1,12 @@
+Step 0:remove vertex 46 (with 56 neighbors ) firstly and its neighbors-79,78,35,33,37,41,82,83,80,81,87,84,85,67,69,68,24,25,26,27,29,3,30,7,31,71,9,72,73,75,19,56,55,18,16,12,64,99,60,98,49,48,97,95,45,94,44,47,92,91,90,52,53,54,88,50,
+Step 1:remove vertex 8 (with 54 neighbors ) firstly and its neighbors-36,34,38,42,40,86,66,32,5,70,59,57,13,14,11,21,20,62,63,61,96,93,10,51,89,
+Step 2:remove vertex 4 (with 48 neighbors ) firstly and its neighbors-17,15,23,28,6,74,76,
+Step 3:remove vertex 1 (with 41 neighbors ) firstly and its neighbors-77,58,65,
+Step 4:remove vertex 2 (with 40 neighbors ) firstly and its neighbors-
+Step 5:remove vertex 43 (with 21 neighbors ) firstly and its neighbors-
+Step 6:remove vertex 39 (with 12 neighbors ) firstly and its neighbors-
+Step 7:remove vertex 0 (with 8 neighbors ) firstly and its neighbors-
+Step 8:remove vertex 22 (with 7 neighbors ) firstly and its neighbors-
+cdu.algorithm.AlgorithmGreedy@1203b59: 475839860
+46,8,4,1,2,43,39,0,22,
+8,4,1,2,39,0,9,
