@@ -25,7 +25,7 @@ public class UtilTest {
 	
 	@Test
 	public void saveToFile() {
-		int numOfVertex = 6;
+		int numOfVertex = 400;
 
 		List<String[]> adjacencyMatrix = Util.generateRandGraph(numOfVertex);
 		Util.saveToFile(adjacencyMatrix);

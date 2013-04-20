@@ -44,10 +44,12 @@ public class AlgorithmGreedy implements IAlgorithm {
 
 	}
 
+	@Override
 	public void setNumOfVertex(int numOfVertex) {
 		this.numOfVertex = numOfVertex;
 	}
 
+	@Override
 	public void setAdjacencyMatrix(List<String[]> adjacencyMatrix) {
 		this.adjacencyMatrix = adjacencyMatrix;
 	}
@@ -178,9 +180,10 @@ public class AlgorithmGreedy implements IAlgorithm {
 
 		int complementaryDSLen = complementaryDS.size();
 
-		boolean isDS = false;
+		//boolean isDS = false;
 		int count = 0;
 		for (int j = 0; j < complementaryDSLen; j++) {
+			int preCount = count;
 			String u = complementaryDS.get(j);
 			Collection<String> neighborsOfU = g.getNeighbors(u);
 			Iterator<String> nUIt = neighborsOfU.iterator();
@@ -192,14 +195,18 @@ public class AlgorithmGreedy implements IAlgorithm {
 					break;
 				}
 			}
+			if(count ==  preCount){ 
+				//if there is not any vertex in the complementary set linked to a vertex in the set, it is not a dominating set
+				return false;
+			}
 		}
-		if (count == complementaryDSLen) {
-			isDS = true;
-		}
-		return isDS;
+//		if (count == complementaryDSLen) {
+//			isDS = true;
+//		}
+		return true;
 
 	}
-
+	@Override
 	public void setK(int k) {
 		this.k = k;
 	}
