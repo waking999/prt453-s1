@@ -8,6 +8,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Properties;
 import java.util.Set;
+import java.util.logging.Logger;
 
 import cdu.algorithm.IAlgorithm;
 import cdu.io.IInput;
@@ -30,6 +31,15 @@ public class CmdMain {
 	private static final String ALGORITHM = "algorithm";
 
 	/**
+	 * the parameter k for answering if there is dominating sets whose size less than or equal to the parameter k
+	 */
+	private static final String K = "k";
+	
+	private static Logger log;
+	static {
+		log = Logger.getLogger(CmdMain.class.getName());
+	}
+	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
@@ -49,7 +59,7 @@ public class CmdMain {
 		// 4. take use of a kind of algorithm to solve it
 		IAlgorithm algorithm = null;
 		String algorithmClass = properties.getProperty(ALGORITHM);
-		System.out.println("The selected Algorithm is " + algorithmClass);
+		log.info("The selected Algorithm is " + algorithmClass);
 		try {
 			algorithm = (IAlgorithm) Class.forName(algorithmClass)
 					.newInstance();
@@ -60,26 +70,26 @@ public class CmdMain {
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
-		algorithm.setInput(input);
-		algorithm.initialization();
+		
+		int k = Integer.parseInt(properties.getProperty(K));
+		algorithm.initialization(input,k);
 
 		algorithm.generateDominatingSet();
 		Set<List<String>> dsSet = algorithm.getDominatingSetSet();
-		int rLen = dsSet.size();
-		System.out.println("There are totally " + rLen
-				+ " minimum dominating sets.");
 		Iterator<List<String>> dsIt = dsSet.iterator();
 
 		while (dsIt.hasNext()) {
 			List<String> dsRow = dsIt.next();
 			int cLen = dsRow.size();
-			for (int j = 0; j < cLen; j++) {
-
-				System.out.print(dsRow.get(j));
-				System.out.print(",");
-
+			if(cLen<=k){
+				StringBuffer sb = new StringBuffer();
+				for (int j = 0; j < cLen; j++) {
+	
+					sb.append(dsRow.get(j)).append(",");
+	
+				}
+				log.info(sb.substring(0, sb.length()-1));
 			}
-			System.out.println();
 		}
 
 	}

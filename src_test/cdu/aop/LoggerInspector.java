@@ -18,8 +18,8 @@ import cdu.algorithm.IAlgorithm;
 public class LoggerInspector {
 	private static Logger log;
 	static {
-		log = Logger.getLogger("cdu.aop.LoggerInspector");
-		log.setLevel(Level.ALL);
+		log = Logger.getLogger(LoggerInspector.class.getName());
+		log.setLevel(Level.INFO);
 	}
 	@Around("execution(public void cdu.algorithm..*.generateDominatingSet())")
 	public void aroundMethod(ProceedingJoinPoint pjp) throws Throwable {		

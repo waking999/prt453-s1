@@ -14,13 +14,7 @@ import cdu.io.IInput;
 
 public interface IAlgorithm {
 
-	/**
-	 * Put the source of data into an algorithm
-	 * 
-	 * @param input
-	 *            the source of data
-	 */
-	public void setInput(IInput input);
+	public static final int NOT_DS = Integer.MAX_VALUE; //take use of an extremely big number to indicate that the size of dominating set is impossible
 
 	/**
 	 * generate dominating set
@@ -37,8 +31,9 @@ public interface IAlgorithm {
 	/**
 	 * After getting source of data, set some initial variables
 	 */
-	public void initialization();
-
+	public void initialization(IInput input, int k) ;
+	public void initialization(int numOfVertex,List<String[]> adjacencyMatrix, int k);
+	
 	public void setK(int k);
 
 	public void setNumOfVertex(int numOfVertex);

@@ -8,6 +8,7 @@ import java.util.Set;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
@@ -16,20 +17,23 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import cdu.io.InputFile;
 
 /**
- * This test class works for test of Algorithm in Stochastic Local Search idea
+ * This test class works for test of Algorithm in Hill Climbing idea
  * 
  * @author : Kai
  * 
  */
-public class AlgorithmStochasticLocalSearchTest {
-	private IAlgorithm as;
+public class AlgorithmHillClimbingTest {
+	private IAlgorithm a;
 
-	private ApplicationContext factory;
+	private static ApplicationContext factory;
+	@BeforeClass
+	public static void setUpBeforeClass(){
+		factory = new ClassPathXmlApplicationContext("beans.xml");
+	}
 
 	@Before
 	public void setUp() {
-		factory = new ClassPathXmlApplicationContext("beans.xml");
-		as = (IAlgorithm) (factory.getBean("algorithmStochasticLocalSearch"));
+		a = (IAlgorithm) (factory.getBean("algorithmHillClimbing"));
 
 	}
 
@@ -48,10 +52,6 @@ public class AlgorithmStochasticLocalSearchTest {
 		 * 
 		 * Minimum Dominating Set : {0, 4}, {0, 5}, {3}, {1, 2, 4}, {1, 2, 5}
 		 */
-		/*
-		 * 3, 0,5, 5,0, 4,0, 2,5,1, 1,5,2,
-		 */
-
 		int numOfVertex = 6;
 
 		List<String[]> adjacencyMatrix = new ArrayList<String[]>();
@@ -62,13 +62,12 @@ public class AlgorithmStochasticLocalSearchTest {
 		adjacencyMatrix.add(new String[] { "0", "0", "0", "1", "1", "1" });
 		adjacencyMatrix.add(new String[] { "0", "0", "0", "1", "1", "1" });
 
-		as.setNumOfVertex(numOfVertex);
+		int k =1;
+		a.initialization(numOfVertex, adjacencyMatrix, k);
 
-		as.setAdjacencyMatrix(adjacencyMatrix);
+		a.generateDominatingSet();
 
-		as.generateDominatingSet();
-
-		Set<List<String>> dsSet = as.getDominatingSetSet();
+		Set<List<String>> dsSet = a.getDominatingSetSet();
 		Iterator<List<String>> dsIt = dsSet.iterator();
 
 		while (dsIt.hasNext()) {
@@ -78,15 +77,8 @@ public class AlgorithmStochasticLocalSearchTest {
 				Assert.assertEquals("3", dsRow.get(0));
 			}
 		}
-		
-		return;
 
 	}
-
-	
-
-
-	
 
 	@Test
 	public void takeUseOfGeneratedBigRandGraphToCompute() {
@@ -94,16 +86,12 @@ public class AlgorithmStochasticLocalSearchTest {
 		InputFile input = new InputFile();
 		input.setInputFile("resource/testcase400.csv");
 		input.getAdjacencyInfo();
-		List<String[]> adjacencyMatrix = input.getAdjacencyMatrix();
-		int numOfVertex = input.getNumOfVertex();
 
-		as.setK(50);
-		as.setNumOfVertex(numOfVertex);
-		as.setAdjacencyMatrix(adjacencyMatrix);
+		int testCase400_Greedy_DS_size = 11;
 
-		as.generateDominatingSet();
+		a.initialization(input, testCase400_Greedy_DS_size);
 
-	
+		a.generateDominatingSet();
 
 		return;
 	}
